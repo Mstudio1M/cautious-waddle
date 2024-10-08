@@ -74,6 +74,7 @@
         #categories {
             text-align: center;
             margin-top: 20px;
+            padding-bottom: 20px;
         }
 
         #categories button {
@@ -94,7 +95,7 @@
         /* Корзина */
         .cart {
             position: fixed;
-            top: 20px;
+            top: 100px;
             right: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -126,8 +127,8 @@
 
         .cart-button {
             position: fixed;
-            top: 20px;
-            left: 20px;
+            bottom: 20px;
+            right: 20px;
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -135,6 +136,7 @@
             cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
+            z-index: 100;
         }
 
         .cart-button:hover {
@@ -177,13 +179,18 @@
             <p>Ціна: 50 грн</p>
             <button onclick="addToCart('Новинка 1', 50)">Додати в корзину</button>
         </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Новинка 2">
+            <h3>Новинка 2</h3>
+            <p>Ціна: 70 грн</p>
+            <button onclick="addToCart('Новинка 2', 70)">Додати в корзину</button>
+        </div>
     </div>
 </div>
 
 <div id="keychains" class="category">
     <h2>Брелки</h2>
     <div class="products">
-        <!-- Товари з категорії "Брелки" -->
         <div class="product">
             <img src="https://via.placeholder.com/150" alt="Фотоапарат">
             <h3>Фотоапарат</h3>
@@ -196,19 +203,35 @@
             <p>Ціна: 15 грн</p>
             <button onclick="addToCart('Молот Тора', 15)">Додати в корзину</button>
         </div>
-        <!-- Додай інші товари тут -->
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Batman">
+            <h3>Batman</h3>
+            <p>Ціна: 15 грн</p>
+            <button onclick="addToCart('Batman', 15)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Кріпер">
+            <h3>Кріпер</h3>
+            <p>Ціна: 25 грн</p>
+            <button onclick="addToCart('Кріпер', 25)">Додати в корзину</button>
+        </div>
     </div>
 </div>
 
 <div id="swords" class="category">
     <h2>Мечі</h2>
     <div class="products">
-        <!-- Товари з категорії "Мечі" -->
         <div class="product">
             <img src="https://via.placeholder.com/150" alt="Меч 1">
             <h3>Меч 1</h3>
             <p>Ціна: 100 грн</p>
             <button onclick="addToCart('Меч 1', 100)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Меч 2">
+            <h3>Меч 2</h3>
+            <п>Ціна: 120 грн</п>
+            <button onclick="addToCart('Меч 2', 120)">Додати в корзину</button>
         </div>
     </div>
 </div>
@@ -216,7 +239,6 @@
 <div id="figures" class="category">
     <h2>Фігурки</h2>
     <div class="products">
-        <!-- Товари з категорії "Фігурки" -->
         <div class="product">
             <img src="https://via.placeholder.com/150" alt="Фігурка 1">
             <h3>Фігурка 1</h3>
@@ -239,7 +261,7 @@
 
     function toggleCart() {
         let cartElement = document.getElementById('cart');
-        if (cartElement.style.display === 'none') {
+        if (cartElement.style.display === 'none' || cartElement.style.display === '') {
             cartElement.style.display = 'block';
         } else {
             cartElement.style.display = 'none';
@@ -267,8 +289,8 @@
         document.getElementById('total-price').innerText = totalPrice + ' грн';
     }
 
-    // Встановлюємо "Новинки" активною категорією при завантаженні сторінки
-    document.addEventListener("DOMContentLoaded", function () {
+    // Встановлюємо категорію "Новинки" як активну за замовчуванням
+    document.addEventListener('DOMContentLoaded', () => {
         showCategory('new');
     });
 </script>
