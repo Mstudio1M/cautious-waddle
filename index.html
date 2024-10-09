@@ -1,45 +1,167 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Неоновий Магазин</title>
-    <!-- Підключаємо CSS-файл -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Каталог Товарів</h2>
-    
-    <div id="categories">
-        <button onclick="filterProducts('keychains')">Брелки</button>
-        <button onclick="filterProducts('mugs')">Чашки</button>
-        <button onclick="filterProducts('tshirts')">Футболки</button>
-    </div>
-    
+
+<!-- Кнопка для перегляду корзини -->
+<div id="categories">
+    <button onclick="showCategory('new')">Новинки</button>
+    <button class="cart-button" id="cart-button" onclick="showCategory('cart')">🛒 Корзина</button>
+    <button onclick="showCategory('keychains')">Брелки</button>
+    <button onclick="showCategory('swords')">Мечі</button>
+    <button onclick="showCategory('figures')">Фігурки</button>
+</div>
+
+<!-- Заголовок категорії -->
+<h2 id="category-title">Новинки</h2>
+
+<!-- Категорії товарів -->
+<div id="new" class="category active">
     <div class="products">
-        <div class="product" data-category="keychains">
-            <img src="image1.jpg" alt="Брелок 1">
-            <h3>Брелок 1</h3>
-            <button onclick="addToCart('Брелок 1', 100)">Додати до кошика</button>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Новинка 1">
+            <h3>Новинка 1</h3>
+            <p>Ціна: 50 грн</p>
+            <button onclick="addToCart('Новинка 1', 50)">Додати в корзину</button>
         </div>
-        <div class="product" data-category="keychains">
-            <img src="image2.jpg" alt="Брелок 2">
-            <h3>Брелок 2</h3>
-            <button onclick="addToCart('Брелок 2', 150)">Додати до кошика</button>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Новинка 2">
+            <h3>Новинка 2</h3>
+            <p>Ціна: 70 грн</p>
+            <button onclick="addToCart('Новинка 2', 70)">Додати в корзину</button>
         </div>
-        <!-- Інші товари -->
     </div>
+</div>
 
-    <div class="cart">
-        <h3>Кошик</h3>
-        <div id="cart-items"></div>
-        <p id="total-price">Загальна сума: 0 грн</p>
-        <button onclick="checkout()">Оформити замовлення</button>
+<div id="keychains" class="category">
+    <div class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Фотоапарат">
+            <h3>Фотоапарат</h3>
+            <p>Ціна: 20 грн</p>
+            <button onclick="addToCart('Фотоапарат', 20)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Молот Тора">
+            <h3>Молот Тора</h3>
+            <p>Ціна: 15 грн</p>
+            <button onclick="addToCart('Молот Тора', 15)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Batman">
+            <h3>Batman</h3>
+            <p>Ціна: 15 грн</p>
+            <button onclick="addToCart('Batman', 15)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Кріпер">
+            <h3>Кріпер</h3>
+            <p>Ціна: 25 грн</p>
+            <button onclick="addToCart('Кріпер', 25)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Кавоварка">
+            <h3>Кавоварка</h3>
+            <p>Ціна: 25 грн</p>
+            <button onclick="addToCart('Кавоварка', 25)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Гиря">
+            <h3>Гиря</h3>
+            <p>Ціна: 25 грн</p>
+            <button onclick="addToCart('Гиря', 25)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Star Wars">
+            <h3>Star Wars</h3>
+            <p>Ціна: 25 грн</p>
+            <button onclick="addToCart('Star Wars', 25)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Minecraft tools - молот">
+            <h3>Minecraft tools - молот</h3>
+            <p>Ціна: 30 грн</p>
+            <button onclick="addToCart('Minecraft tools - молот', 30)">Додати в корзину</button>
+        </div>
+        <!-- Інші брелки -->
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Skull - череп">
+            <h3>Skull - череп</h3>
+            <p>Ціна: 25 грн</p>
+            <button onclick="addToCart('Skull - череп', 25)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Shop - coin">
+            <h3>Shop - coin</h3>
+            <p>Ціна: 5 грн</p>
+            <button onclick="addToCart('Shop - coin', 5)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Андроїд">
+            <h3>Андроїд</h3>
+            <p>Ціна: 15 грн</p>
+            <button onclick="addToCart('Андроїд', 15)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Кораблик">
+            <h3>Кораблик</h3>
+            <p>Ціна: 30 грн</p>
+            <button onclick="addToCart('Кораблик', 30)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Дракончик">
+            <h3>Дракончик</h3>
+            <p>Ціна: 35 грн</p>
+            <button onclick="addToCart('Дракончик', 35)">Додати в корзину</button>
+        </div>
     </div>
+</div>
 
-    <button class="cart-button" onclick="toggleCart()">Кошик</button>
+<div id="swords" class="category">
+    <div class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Меч 1">
+            <h3>Меч 1</h3>
+            <p>Ціна: 100 грн</p>
+            <button onclick="addToCart('Меч 1', 100)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Меч 2">
+            <h3>Меч 2</h3>
+            <p>Ціна: 120 грн</p>
+            <button onclick="addToCart('Меч 2', 120)">Додати в корзину</button>
+        </div>
+    </div>
+</div>
 
-    <!-- Підключаємо JavaScript-файл -->
-    <script src="script.js"></script>
+<div id="figures" class="category">
+    <div class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Фігурка 1">
+            <h3>Фігурка 1</h3>
+            <p>Ціна: 200 грн</p>
+            <button onclick="addToCart('Фігурка 1', 200)">Додати в корзину</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/150" alt="Фігурка 2">
+            <h3>Фігурка 2</h3>
+            <p>Ціна: 220 грн</p>
+            <button onclick="addToCart('Фігурка 2', 220)">Додати в корзину</button>
+        </div>
+    </div>
+</div>
+
+<!-- Корзина -->
+<div class="cart" id="cart">
+    <div id="cart-items"></div>
+    <p id="total-price">Сума: 0 грн</p>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
