@@ -1,0 +1,20 @@
+<div class="products">
+    <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Фотоапарат">
+        <h3>Фотоапарат</h3>
+        <p>Ціна: 20 грн</p>
+        <button onclick="addToCart('Фотоапарат', 20)">Додати в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Молот Тора">
+        <h3>Молот Тора</h3>
+        <p>Ціна: 15 грн</p>
+        <button onclick="addToCart('Молот Тора', 15)">Додати в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Batman">
+        <h3>Batman</h3>
+        <p>Ціна: 25 грн</p>
+        <button onclick="addToCart('Batman', 25)">Додати в корзину</button>
+    </div>
+</div>
